@@ -55,9 +55,10 @@ export default function TempAndHum({tempAndHum}) {
           datasetIdKey='id'
           data={{
             datasets: [{
-              label: "temperature",
+              label: "Temperature",
               data: data.tempetature,
-              borderColor : '#ff0000'
+              borderColor : '#ff0000',
+              fontSize : 80
 
             }],
             labels : data.time
@@ -69,11 +70,11 @@ export default function TempAndHum({tempAndHum}) {
           datasetIdKey='id'
           data={{
             datasets: [{
-              label: "humidity",
+              label: "Humidity",
               data: data.humidity,
               borderColor : '#0000ff'
  
-            }],
+            },],
             labels : data.time
             
           }}

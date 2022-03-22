@@ -5,6 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   font-family: 'Anton', sans-serif;
+  max-width: 100%;
 }
 
 .App {
@@ -25,10 +26,10 @@ body {
 
 .Arduino {
   width: 100%;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: burlywood;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -39,19 +40,52 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: 80vw;
+  overflow: hidden;
+}
+
+@media (min-width: 480px) {
+  .Arduino .Menu {
+    margin-top: 30px;
+  }
 }
 
 .Arduino .Menu__option {
   width: 100%;
   list-style: none;
   background-color: #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 480px) {
+  .Arduino .Menu__option {
+    width: 480px;
+  }
+}
+
+@media (min-width: 720px) {
+  .Arduino .Menu__option {
+    width: 600px;
+  }
 }
 
 .Arduino .Menu__option__header {
@@ -71,6 +105,7 @@ body {
 
 .Arduino .Menu__option__text {
   display: block;
+  padding-left: 5 0px;
   -webkit-box-flex: 3;
       -ms-flex-positive: 3;
           flex-grow: 3;
@@ -86,25 +121,34 @@ body {
 }
 
 .Arduino .Menu .RGB {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100vw;
   border-radius: 50%;
   border: 4px solid black;
   overflow: hidden;
-  -webkit-transform: rotate(15deg);
-          transform: rotate(15deg);
+  -webkit-transform: rotate(15deg) scale(0.9);
+          transform: rotate(15deg) scale(0.9);
+}
+
+@media (min-width: 480px) {
+  .Arduino .Menu .RGB {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .Arduino .Menu .RGB__Triangle {
   position: absolute;
-  left: calc(50% - 100px);
+  left: calc(50% - 24.5vw);
   top: 50%;
   width: 0;
   height: 0;
-  border-top: 55px solid transparent;
-  border-bottom: 55px solid transparent;
-  border-left: 200px solid green;
+  border-top: 14vw solid transparent;
+  border-bottom: 14vw solid transparent;
+  border-left: 50vw solid green;
   z-index: 0;
 }
 
@@ -223,8 +267,8 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%) rotate(-15deg);
           transform: translate(-50%, -50%) rotate(-15deg);
-  width: 200px;
-  height: 200px;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
   border: 3px solid black;
   z-index: 1;
@@ -234,6 +278,7 @@ body {
 }
 
 .Arduino .Menu .RGB__Wheel__Actual {
+  background-color: black;
   width: 100%;
   height: 50%;
   display: -webkit-box;
@@ -245,6 +290,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transform: scaleY(1.1);
+          transform: scaleY(1.1);
 }
 
 .Arduino .Menu .RGB__Wheel__Status {
@@ -259,6 +306,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transform: scaleY(1.1);
+          transform: scaleY(1.1);
 }
 
 .Arduino .Menu .RGB__Wheel__Status--ON {
@@ -273,6 +322,20 @@ body {
   color: black;
   text-align: center;
   font-size: 48px;
+}
+
+.Arduino .Menu .TempAndHum {
+  width: 80%;
+}
+
+@media (min-width: 720px) {
+  .Arduino .Menu .TempAndHum {
+    height: 80%;
+  }
+}
+
+.Arduino .Menu .TempAndHum canvas {
+  padding: 10px;
 }
 
 .Arduino .Menu .TempAndHum__temp {

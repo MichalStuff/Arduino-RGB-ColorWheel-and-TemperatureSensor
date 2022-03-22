@@ -7,8 +7,6 @@ export default function ColorWheel({setColor, color}) {
     const containerRef = createRef();
     const [status,setStatus] = useState(false);
 
-
-
     const handleTriangles = (e)=>{
         const mouseX = (e.pageX - containerRef.current.offsetLeft) - (containerRef.current.offsetWidth / 2) + 1;
         const mouseY = ((e.pageY - containerRef.current.offsetTop) -  (containerRef.current.offsetHeight / 2) + 1) * -1;
@@ -77,14 +75,11 @@ export default function ColorWheel({setColor, color}) {
   <div className='RGB__Triangle RGB__Triangle--yellow' ></div>
   <div className='RGB__Triangle RGB__Triangle--orange' ></div>
   <div className="RGB__Wheel" >
-      <div className="RGB__Wheel__Actual " style={{backgroundColor : `rgb(${color.R},${color.G},${color.B})`}}></div>
-      <div className="RGB__Wheel__Status" onClick={handleStatus} style = {status?{backgroundColor :'white'}:{backgroundColor :'black'}}>
+      <div className="RGB__Wheel__Actual " style={status ? {backgroundColor : `rgb(${color.R},${color.G},${color.B})`} : {backgroundColor : 'black'}}></div>
+      <div className="RGB__Wheel__Status" onClick={handleStatus} style = {status ? {backgroundColor :'white'}:{backgroundColor :'black'}}>
       {status? <p className='RGB__Wheel__Status--OFF'>OFF</p> : <p className='RGB__Wheel__Status--ON'>ON</p>}
       </div>
   </div>
 </div>
   )
 }
-
-//TODO
- // ! Ważne zrobić trójkąt w trójkiącie jako obramowanie (użć ::after lub ::before)
