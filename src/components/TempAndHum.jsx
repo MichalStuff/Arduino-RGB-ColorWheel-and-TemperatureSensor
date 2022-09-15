@@ -7,7 +7,6 @@ import { Line } from 'react-chartjs-2'
 export default function TempAndHum({tempAndHum}) {
 
   const [data,setData] = useState({tempetature : [], humidity : [], time : []});
-  const [average,setAverage] = useState({tempetature : [], humidity : [],time : []});
 
   useEffect(()=>{
     let date = new Date();

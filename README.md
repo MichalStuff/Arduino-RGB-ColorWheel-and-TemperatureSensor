@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# This is short guide how to use this app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Step 1
 
-## Available Scripts
+Download or clone this repo
+\*\* git clone https://github.com/MichalStuff/Arduino-RGB-ColorWheel-and-TemperatureSensor.git
 
-In the project directory, you can run:
+## Step 2
 
-### `npm start`
+Download npm package for this project with this command :
+** npm install
+Somethimes there is the problem with downloading Nodemon package, to fix this you need to type this command :
+** npm instal nodemon
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Step 3
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Open and upload arduino project to your arduino board, You can find it in Arduino folder, with the picture of wiring.
 
-### `npm test`
+## Step 4
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To proper work you neet to edit couple things
 
-### `npm run build`
+### In Server.js :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+line 4 : const PORT = 4000; //CHANGE THIS VALUE TO PORT THAT IS FREE OR LEAVE IT
+line 5 : const COM_PORT = "COM3"; // CHANGE THIS VALUE TO PORT THAT YOUR ARDUINO IS CONNECTED
+line 6 : const BAUD_RATE = 9600; // CHANGE THIS VALUE TO BAUD_RATE OF YOUR ARDUINO
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### In context folder socket.jsx :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const IP = "YOUR IP ADRESS"// To connect with local server you need to change ip to your PC ip
+const PORT = "4000" // To connect with local server you need to change port to the same that you changed in Server.js or leave it
 
-### `npm run eject`
+## Step 5
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Open terminal an type :
+**npm run start:back
+Next open new terminal and type :
+**npm run start:front
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Now it should open in browser, if it's not. Search informations in the terminal.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### it should look like this :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Compiled successfully!
 
-## Learn More
+You can now view socket in the browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Compiled successfully!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can now view socket in the browser.
 
-### Code Splitting
+Local: http://localhost:3000/
+On Your Network: http://XXX.XXX.X.XXX:3000/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## You can also open this app in your mobile device or tablet connected to the wifi using your local server device ip address
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+On Your Network: http://XXX.XXX.X.XXX:3000/

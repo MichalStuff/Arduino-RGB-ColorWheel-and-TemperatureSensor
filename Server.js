@@ -1,7 +1,11 @@
 const app = require('express');
 const http = require('http').createServer(app);
 
-http.listen(4000, () => {
+const PORT = 4000; //CHANGE THIS VALUE TO PORT THAT IS FREE or leave it
+const COM_PORT = "COM3"; // CHANGE THIS VALUE TO PORT THAT YOUR ARDUINO IS CONNECTED
+const BAUD_RATE = 9600; // CHANGE THIS VALUE TO BAUD_RATE OF YOUR ARDUINO;
+
+http.listen(PORT, () => {
     console.log('listening on port 4000');
 });
 
@@ -12,7 +16,6 @@ const io = require('socket.io')(http, {
 });
 
 io.on('connection', socket => {
-    socket.emit('cos', 'ej');
     console.log(socket.id);
     socket.on('message', msg => {
         port.write(msg);
@@ -30,10 +33,8 @@ const {
 
 let port = undefined;
 
-
-
-port = SerialPort('COM6', {
-    baudRate: 9600
+port = SerialPort(COM_PORT, {
+    baudRate: BAUD_RATE
 });
 
 port.on('open', () => {

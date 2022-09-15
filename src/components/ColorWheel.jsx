@@ -52,6 +52,8 @@ export default function ColorWheel({setColor, color}) {
                 return colors.white;
             }else
             return colors.off;
+        }else if(status === false){
+            return colors.off;
         }
         
     }
@@ -80,6 +82,7 @@ export default function ColorWheel({setColor, color}) {
       {status? <p className='RGB__Wheel__Status--OFF'>OFF</p> : <p className='RGB__Wheel__Status--ON'>ON</p>}
       </div>
   </div>
+  {console.log(status)}
 </div>
   )
 }

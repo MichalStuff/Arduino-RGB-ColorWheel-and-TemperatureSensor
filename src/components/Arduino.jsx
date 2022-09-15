@@ -18,7 +18,7 @@ export default function Arduino() {
     const [color,setColor] = useState({R:0,G:0,B:0});
     const [tempAndHum, setTempAndHum] = useState({tempetature : 0, humidity : 0})
     const [menu, setMenu] = useState({option1:false,option2:false});
-    const [chartData, setChartData] = useState({temperature : [], humidity: []});
+    // const [chartData, setChartData] = useState({temperature : [], humidity: []});
 
     useEffect(()=>{
         socket.on('tempAndHum',value=>{
@@ -31,11 +31,18 @@ export default function Arduino() {
             let msg = `${color.R}:${color.G}:${color.B}\n`;
             socket.emit('message',msg); 
     },[color]);
+    useEffect(()=>{
+        if(menu.option1 === false){
+            let msg = `${0}:${0}:${0}\n`;
+            socket.emit('message', msg);
+        }
+    },[menu.option1]);
 
     
     const handleOption1 = ()=>{
         setMenu({option1 : !menu.option1,
         option2 : menu.option2});
+
     }
     const handleOption2 = ()=>{
         setMenu({option1 : menu.option1,
